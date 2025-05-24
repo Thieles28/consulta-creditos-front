@@ -1,0 +1,86 @@
+<mat-form-field>
+  <mat-label>Consultar Número da Nota Fiscal</mat-label>
+  <input #input (keyup)="applyFilter($event)" matInput placeholder="Número da Nota Fiscal">
+</mat-form-field>
+<mat-card class="w-100">
+  <mat-card-content>
+    <h4 class="mb-56">Créditos</h4>
+
+    <div class="table-responsive">
+      <table [dataSource]="dataSource" class="text-nowrap w-100" mat-table matSort>
+        <ng-container matColumnDef="numeroCredito">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>Número Crédito</th>
+          <td *matCellDef="let element" mat-cell>
+            <p class="mb-0 fw-medium op-5">{{ element.numeroCredito }}</p>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="numeroNfse">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>Número Nota Fiscal</th>
+          <td *matCellDef="let element" mat-cell>
+            <p class="mb-0 fw-medium op-5">{{ element.numeroNfse }}</p>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dataConstituicao">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>Data Constituição</th>
+          <td *matCellDef="let element" mat-cell>
+            <p class="mb-0 fw-medium op-5">{{ element.dataConstituicao }}</p>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="valorIssqn">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>Valo ISSQN</th>
+          <td *matCellDef="let element" mat-cell>
+            <p class="mb-0 fw-medium op-5">{{ element.valorIssqn }}</p>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tipoCredito">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>Tipo Crédito</th>
+          <td *matCellDef="let element" mat-cell>
+            <p class="mb-0 fw-medium op-5">{{ element.tipoCredito }}</p>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="simplesNacional">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>Simples Nacional</th>
+          <td *matCellDef="let element" mat-cell>
+            <p class="mb-0 fw-medium op-5">{{ element.simplesNacional }}</p>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="aliquota">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>Alíquota</th>
+          <td *matCellDef="let element" mat-cell>
+            <p class="mb-0 fw-medium op-5">{{ element.aliquota }}</p>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="valorFaturado">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>Valor Faturado</th>
+          <td *matCellDef="let element" mat-cell>
+            <p class="mb-0 fw-medium op-5">{{ element.valorFaturado }}</p>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="valorDeducao">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>Valor Dedução</th>
+          <td *matCellDef="let element" mat-cell>
+            <p class="mb-0 fw-medium op-5">{{ element.valorDeducao }}</p>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="baseCalculo">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header>Base Cálculo</th>
+          <td *matCellDef="let element" mat-cell>
+            <p class="mb-0 fw-medium op-5">{{ element.baseCalculo }}</p>
+          </td>
+        </ng-container>
+        <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+        <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[3, 5, 10, 25, 100]"
+                     showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>
