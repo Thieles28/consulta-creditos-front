@@ -1,0 +1,82 @@
+<form [formGroup]="creditoForm">
+  <mat-grid-list cols="1" rowHeight="5:1">
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Consultar Número de Crédito</mat-label>
+        <input formControlName="numeroCredito" matInput placeholder="Entre com número de crédito" type="text">
+      </mat-form-field>
+      <button (click)="consultarCredito()" [disabled]="creditoForm.invalid" class="me-8 margin-left mb-8 cl"
+              color="primary" mat-raised-button>Consultar
+      </button>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
+<mat-card *ngIf="credito" class="w-100">
+  <mat-card-content>
+    <h2 class="negrito" mat-dialog-title>Detalhes do Crédito</h2>
+    <mat-card-content>
+      <mat-grid-list cols="4" rowHeight="3:1">
+        <mat-grid-tile>
+          <div class="text-center">
+            <h3>Número Crédito</h3>
+            <p>{{ credito.numeroCredito }}</p>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-center">
+            <h3>Número Nota Fiscal</h3>
+            <p>{{ credito.numeroNfse }}</p>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-center">
+            <h3>Data Constituição</h3>
+            <p>{{ credito.dataConstituicao }}</p>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-center">
+            <h3>Valor ISSQN</h3>
+            <p>{{ credito.valorIssqn }}</p>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-center">
+            <h3>Tipo Crédito</h3>
+            <p> {{ credito.tipoCredito }}</p>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-center">
+            <h3>Simples Nacional</h3>
+            <p> {{ credito.simplesNacional }}</p>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-center">
+            <h3>Alíquota</h3>
+            <p> {{ credito.aliquota }}</p>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-center">
+            <h3>Valor Faturado</h3>
+            <p> {{ credito.valorFaturado }}</p>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-center">
+            <h3>Valor Deducao</h3>
+            <p> {{ credito.valorDeducao }}</p>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-center">
+            <h3>Base Calcúlo</h3>
+            <p>{{ credito.baseCalculo }}</p>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+  </mat-card-content>
+</mat-card>
